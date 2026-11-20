@@ -26,3 +26,7 @@ This config support out of the box a lot of different machine hardware configura
 
 Please see [How to write an override](./overrides.md#how-to-write-an-override) in docs/overrides.md for more information on customizing your configuration.
 
+
+## Physical tool changers
+
+Optional [Toolchanger support](./toolchanger.md) integrates StealthChanger and TapChanger fixed docks, 2–7 tools, per-tool TAPs, PA, input shaping, sensors, LEDs and manual failure recovery.

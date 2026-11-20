@@ -139,7 +139,7 @@ function install_config {
     # as moonraker is already pulling the changes and custom user config files are already here
     if [ ! -f "${BACKUP_DIR}/.VERSION" ]; then
         printf "[INSTALL] New installation detected: config templates will be set in place!\n\n"
-        find ${FRIX_CONFIG_PATH}/user_templates/ -type d -name 'mcu_defaults' -prune -o -type f -print | xargs cp -ft ${USER_CONFIG_PATH}/
+        find ${FRIX_CONFIG_PATH}/user_templates/ -type d \( -name 'mcu_defaults' -o -name 'toolchanger' \) -prune -o -type f -print0 | xargs -0 -r cp -ft ${USER_CONFIG_PATH}/
         for config_file in crowsnest.conf sonar.conf timelapse.cfg; do
             if [ -f "${BACKUP_DIR}/${config_file}" ]; then
                 cp -f "${BACKUP_DIR}/${config_file}" "${USER_CONFIG_PATH}/${config_file}"
